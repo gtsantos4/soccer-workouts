@@ -59,15 +59,15 @@ window.WORKOUTS = [
     id: "deck-of-cards",
     group: "Staples",
     name: "Deck of cards",
-    format: "Each suit represents an exercise, the number on the card is how many reps you do. Jacks = 11, queens = 12, kings = 13. ALL aces mean 8 burpees.",
+    format: "Each suit represents an exercise, the number on the card is how many reps you do. Jacks = 11, queens = 12, kings = 13. ALL aces mean 14 burpees.",
     structure: "Whole deck",
     equipment: "A deck of cards + a chair",
     exercises: [
-      { id: "lunge", reps: "card number", note: "Pick a suit." },
-      { id: "crunch", reps: "card number", note: "Pick a suit." },
-      { id: "squat", reps: "card number", note: "Pick a suit." },
-      { id: "dip", reps: "card number", note: "Pick a suit. Dips on a chair." },
-      { id: "burpee", reps: "8 per ace", note: "Any ace, any suit = 8 burpees." }
+      { id: "lunge", reps: "card number", note: "Hearts." },
+      { id: "crunch", reps: "card number", note: "Diamonds." },
+      { id: "squat", reps: "card number", note: "Clubs." },
+      { id: "dip", reps: "card number", note: "Spades. Dips on a chair." },
+      { id: "burpee", reps: "14 per ace", note: "Any ace, any suit = 14 burpees." }
     ]
   },
   {
