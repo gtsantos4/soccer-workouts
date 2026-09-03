@@ -1,101 +1,129 @@
-/* Type + palette from the Nike Tailwind mockup (Montserrat / Palanquin, coral #FF6452,
-   slate #6D6D6D, pale #F5F6FF); headline treatment from nike.com (heavy uppercase, tight). */
-:root {
-  --black: #111;
-  --white: #fff;
-  --pale: #f5f6ff;
-  --slate: #6d6d6d;
-  --line: #e5e5e5;
-  --coral: #ff6452;
-  --head: "Montserrat", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --body: "Palanquin", "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
+/* Gradum Strength — styled with the Gradum Academy design system.
+   Tokens come from brand/colors_and_type.css (Bebas Neue display, Inter UI,
+   ink / canvas / soft-cloud chrome, one --ga-pitch moment per viewport). */
+@import url("brand/colors_and_type.css");
+
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
-body { margin: 0; background: var(--white); color: var(--black); font: 16px/1.5 var(--body); }
+body {
+  margin: 0; background: var(--ga-canvas); color: var(--ga-ink);
+  font: var(--ga-type-body-md);
+  -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+}
 a { color: inherit; text-decoration: none; }
 button { font: inherit; }
 
+/* ---------- nav ---------- */
 .topbar {
-  position: sticky; top: 0; z-index: 10; background: var(--white);
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 20px; border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 10; background: var(--ga-canvas);
+  height: 60px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 var(--ga-space-xl);
+  box-shadow: inset 0 -1px 0 var(--ga-hairline-soft);
 }
-.brand { font: 800 18px/1 var(--head); text-transform: uppercase; letter-spacing: -0.02em; }
-.topbar nav a { font: 600 14px var(--head); margin-left: 20px; }
-.topbar nav a:hover { color: var(--slate); }
+.brand { display: flex; align-items: center; gap: var(--ga-space-md); }
+.brand img { width: 36px; height: 36px; display: block; }
+.brand span { font: var(--ga-type-body-strong); font-weight: 600; }
+.topbar nav a { font: var(--ga-type-body-strong); padding: var(--ga-space-xs) 0; }
+.topbar nav a:hover { opacity: 0.85; }
 
-.container { max-width: 960px; margin: 0 auto; padding: 32px 20px 80px; }
+.container { max-width: 960px; margin: 0 auto; padding: var(--ga-space-section) var(--ga-space-xl) 96px; }
 
+/* ---------- type ---------- */
 h1 {
-  font: 800 clamp(40px, 8vw, 72px)/0.95 var(--head);
-  text-transform: uppercase; letter-spacing: -0.03em; margin: 0 0 16px;
+  font: var(--ga-type-display-campaign); font-size: clamp(64px, 12vw, 128px); line-height: 0.85;
+  text-transform: uppercase; margin: 0 0 var(--ga-space-lg);
 }
-h2 { font: 800 22px/1.1 var(--head); text-transform: uppercase; letter-spacing: -0.02em; margin: 40px 0 12px; }
-.eyebrow { font: 600 12px var(--head); text-transform: uppercase; letter-spacing: .12em; color: var(--slate); margin: 40px 0 8px; }
-.eyebrow:first-of-type { margin-top: 24px; }
-.lede { color: var(--slate); margin: 0 0 8px; max-width: 60ch; }
-.notes { margin: 0 0 8px; padding: 0; list-style: none; color: var(--slate); max-width: 60ch; }
-.notes li { margin: 0 0 6px; padding-left: 18px; position: relative; }
-.notes li::before { content: ""; position: absolute; left: 0; top: .6em; width: 8px; height: 2px; background: var(--coral); }
+h1::after {
+  /* the one pitch moment on the page */
+  content: ""; display: block; width: 48px; height: 4px; margin-top: var(--ga-space-lg);
+  background: var(--ga-pitch);
+}
+h2 { font: var(--ga-type-quote-pull); font-size: 40px; text-transform: uppercase; margin: var(--ga-space-section) 0 var(--ga-space-md); }
+.eyebrow {
+  font: var(--ga-type-caption-sm); text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ga-mute); margin: var(--ga-space-section) 0 var(--ga-space-sm);
+}
+.eyebrow:first-of-type { margin-top: var(--ga-space-xxl); }
+.lede { font: var(--ga-type-body-md); color: var(--ga-ash); margin: 0 0 var(--ga-space-sm); max-width: 60ch; }
+.notes { margin: 0 0 var(--ga-space-sm); padding: 0; list-style: none; color: var(--ga-ash); max-width: 60ch; }
+.notes li { margin: 0 0 var(--ga-space-sm); padding-left: var(--ga-space-lg); position: relative; }
+.notes li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 1px; background: var(--ga-ink); }
 
-/* list rows (workouts, exercises) */
-.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.rows > li { border-bottom: 1px solid var(--line); }
+/* ---------- list rows ---------- */
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ga-hairline); }
+.rows > li { border-bottom: 1px solid var(--ga-hairline-soft); }
 .row {
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
-  padding: 18px 0;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--ga-space-lg);
+  padding: var(--ga-space-lg) 0; transition: opacity var(--ga-dur-fast) var(--ga-ease-enter);
 }
-.row:hover .t { color: var(--slate); }
-.row .t { font: 800 20px/1.1 var(--head); text-transform: uppercase; letter-spacing: -0.02em; }
-.row .s { color: var(--slate); margin-top: 4px; font-size: 15px; }
-.row .arrow { font: 800 22px var(--head); flex: none; }
+.row:hover { opacity: 0.85; }
+.row .t { font: var(--ga-type-lower-third-name); font-size: 36px; text-transform: uppercase; }
+.row .s { font: var(--ga-type-caption-md); color: var(--ga-mute); margin-top: var(--ga-space-xs); }
+.row .arrow { flex: none; width: 40px; height: 40px; border-radius: var(--ga-radius-full); background: var(--ga-soft-cloud);
+  display: inline-flex; align-items: center; justify-content: center; }
+.row .arrow svg { width: 18px; height: 18px; stroke: var(--ga-ink); }
 
-/* workout page */
-.format { font-size: 18px; margin: 0 0 24px; max-width: 60ch; }
-.ex { padding: 16px 0; }
-.ex .head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
-.ex .n { font: 600 13px var(--head); color: var(--slate); margin-right: 10px; }
-.ex .t { font: 800 20px/1.1 var(--head); text-transform: uppercase; letter-spacing: -0.02em; }
-.ex .t:hover { color: var(--slate); }
-.ex .reps { font: 800 20px/1.1 var(--head); color: var(--coral); text-align: right; flex: none; }
-.ex .s { color: var(--slate); font-size: 15px; margin-top: 4px; }
-.ex .s b { color: var(--black); font-weight: 600; }
-.ex .actions { margin-top: 10px; }
-.ex.rest { background: var(--pale); padding: 12px 16px; margin: 4px 0; }
+/* ---------- workout page ---------- */
+.format { font: var(--ga-type-heading-md); font-size: 18px; line-height: 1.5; margin: 0 0 var(--ga-space-xl); max-width: 60ch; }
+.ex { padding: var(--ga-space-lg) 0; }
+.ex .head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--ga-space-md); }
+.ex .n { font: var(--ga-type-caption-sm); color: var(--ga-mute); margin-right: var(--ga-space-md); font-variant-numeric: tabular-nums; }
+.ex .t { font: var(--ga-type-lower-third-name); font-size: 36px; text-transform: uppercase; }
+.ex .t:hover { opacity: 0.85; }
+.ex .reps { font: var(--ga-type-lower-third-name); font-size: 36px; text-transform: uppercase; text-align: right; flex: 0 1 auto; max-width: 45%; font-variant-numeric: tabular-nums; }
+.ex .s { font: var(--ga-type-caption-md); color: var(--ga-mute); margin-top: var(--ga-space-xs); }
+.ex .s b { color: var(--ga-ink); font-weight: 600; }
+.ex .actions { margin-top: var(--ga-space-md); }
+.ex.rest { background: var(--ga-soft-cloud); padding: var(--ga-space-md) var(--ga-space-lg); margin: var(--ga-space-xs) 0; }
+.ex.rest .t, .ex.rest .reps { font-size: 24px; }
 
+/* ---------- buttons: pill only ---------- */
 .btn {
-  display: inline-block; padding: 8px 20px; border-radius: 999px;
-  background: var(--black); color: var(--white); border: 1.5px solid var(--black);
-  font: 600 14px var(--head); cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 48px; padding: 0 32px; border: 0; border-radius: var(--ga-radius-lg);
+  background: var(--ga-ink); color: var(--ga-on-primary);
+  font: var(--ga-type-button-md); cursor: pointer;
+  transition: transform var(--ga-dur-fast) var(--ga-ease-enter), opacity var(--ga-dur-fast) var(--ga-ease-enter);
 }
-.btn:hover { background: var(--slate); border-color: var(--slate); }
-.btn.ghost { background: var(--white); color: var(--black); }
-.btn.ghost:hover { background: var(--pale); }
-.btn.sm { padding: 6px 14px; font-size: 13px; }
+.btn:hover { opacity: 0.85; }
+.btn:active { transform: scale(0.97); opacity: 0.85; }
+.btn.ghost { background: var(--ga-soft-cloud); color: var(--ga-ink); }
+.btn.sm { height: 36px; padding: 0 18px; font: var(--ga-type-button-sm); }
 
-/* how-to */
-.howto { padding: 16px 0 8px; }
+/* ---------- how-to ---------- */
+.howto { padding: var(--ga-space-lg) 0 var(--ga-space-sm); }
 .howto[hidden] { display: none; }
-.two-col { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.two-col { display: grid; grid-template-columns: 1fr; gap: var(--ga-space-xl); }
 @media (min-width: 720px) { .two-col { grid-template-columns: 1fr 1fr; } }
-.steps { margin: 0 0 16px; padding-left: 20px; }
-.steps li { margin-bottom: 8px; }
-.cues { margin: 0; padding: 0; list-style: none; color: var(--slate); font-size: 15px; }
-.cues li { padding-left: 16px; position: relative; margin-bottom: 4px; }
-.cues li::before { content: ""; position: absolute; left: 0; top: .65em; width: 8px; height: 2px; background: var(--coral); }
-.video { aspect-ratio: 16 / 9; background: var(--black); overflow: hidden; }
+.steps { margin: 0 0 var(--ga-space-lg); padding-left: 20px; }
+.steps li { margin-bottom: var(--ga-space-sm); }
+.cues { margin: 0; padding: 0; list-style: none; color: var(--ga-mute); font: var(--ga-type-caption-md); }
+.cues li { padding-left: var(--ga-space-lg); position: relative; margin-bottom: var(--ga-space-xs); }
+.cues li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 1px; background: var(--ga-ink); }
+.video { aspect-ratio: 16 / 9; background: var(--ga-ink); overflow: hidden; }
 .video iframe { width: 100%; height: 100%; border: 0; display: block; }
 .video-missing {
-  aspect-ratio: 16 / 9; background: var(--pale);
-  display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;
+  aspect-ratio: 16 / 9; background: var(--ga-soft-cloud);
+  display: flex; align-items: center; justify-content: center; text-align: center; padding: var(--ga-space-lg);
 }
-.yt { display: inline-block; margin-top: 8px; font: 600 13px var(--head); color: var(--slate); }
-.yt:hover { color: var(--black); }
-.swap { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-.detail { color: var(--slate); margin: 0 0 24px; }
-.detail b { color: var(--black); font-weight: 600; }
+.yt { display: inline-block; margin-top: var(--ga-space-sm); font: var(--ga-type-caption-md); color: var(--ga-mute); text-decoration: underline; text-underline-offset: 3px; }
+.yt:hover { color: var(--ga-ink); }
+.swap { display: flex; gap: var(--ga-space-sm); flex-wrap: wrap; margin-top: var(--ga-space-lg); }
+.detail { font: var(--ga-type-body-md); color: var(--ga-mute); margin: 0 0 var(--ga-space-xl); }
+.detail b { color: var(--ga-ink); font-weight: 600; }
 
-.back { display: inline-block; font: 600 14px var(--head); color: var(--slate); margin-bottom: 20px; }
-.back:hover { color: var(--black); }
-.empty { color: var(--slate); padding: 24px 0; }
+.back { display: inline-block; font: var(--ga-type-caption-md); color: var(--ga-mute); margin-bottom: var(--ga-space-xl); }
+.back:hover { color: var(--ga-ink); }
+.empty { color: var(--ga-mute); padding: var(--ga-space-xl) 0; }
+
+/* ---------- footer ---------- */
+.foot {
+  max-width: 960px; margin: 0 auto; padding: var(--ga-space-xl); border-top: 1px solid var(--ga-hairline);
+  display: flex; align-items: center; gap: var(--ga-space-md); font: var(--ga-type-caption-sm); color: var(--ga-mute);
+}
+.foot img { width: 24px; height: 24px; opacity: 0.7; }
+
+@media (max-width: 600px) {
+  .row .t, .ex .t, .ex .reps { font-size: 28px; }
+  h2 { font-size: 32px; }
+}

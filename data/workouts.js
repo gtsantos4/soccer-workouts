@@ -114,12 +114,3 @@ window.WORKOUTS = [
 ];
 
 // Copy from the doc, shown on the home page.
-window.INTRO = {
-  lede: "These are some of the staples you can use as a starting point. Work through them, but then feel free to mix it up with different exercises following the same format (text me if you're not sure if certain exercises would work).",
-  notes: [
-    "For exercises like pushups, drop down on your knees if you have to. I'd rather you complete it, we'll work towards being able to do the full thing.",
-    "Most of these can be found on YouTube if you don't know them, and I'm here for any questions.",
-    "I'd recommend trying to work 3+ in per week. Let me know if you need anything."
-  ],
-  soreLegs: "On days when your legs are sore, you can still get in a core/upper body workout."
-};

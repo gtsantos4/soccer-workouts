@@ -1,6 +1,6 @@
 (function () {
   const $app = document.getElementById("app");
-  const EX = window.EXERCISES, WO = window.WORKOUTS, INTRO = window.INTRO;
+  const EX = window.EXERCISES, WO = window.WORKOUTS;
   const exById = Object.fromEntries(EX.map(e => [e.id, e]));
   const CAT = { lower: "Lower body", upper: "Upper body", full: "Full body", core: "Core" };
   const TIER = { "bw": "Bodyweight", "tougher-bw": "Tougher bodyweight", "weighted": "Weighted" };
@@ -12,7 +12,7 @@
   }
   function videoBlock(ex) {
     const id = youtubeId(ex.video);
-    if (id) return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(ex.name)}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+    if (id) return `<div class="video"><iframe src="https://www.youtube.com/embed/${id}?rel=0" title="${esc(ex.name)}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
       <a class="yt" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Watch on YouTube</a>`;
     if (ex.video) return `<a class="btn" href="${esc(ex.video)}" target="_blank" rel="noopener">Watch</a>`;
     const q = encodeURIComponent(ex.name + " exercise form");
@@ -38,17 +38,14 @@
 
   const workoutRow = w => `<li><a class="row" href="#/workout/${w.id}">
     <div><div class="t">${esc(w.name)}</div><div class="s">${esc(w.structure)}</div></div>
-    <span class="arrow">→</span></a></li>`;
+    <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a></li>`;
 
   function renderHome() {
     const groups = [...new Set(WO.map(w => w.group))];
     $app.innerHTML = `
       <h1>Workouts</h1>
-      <p class="lede">${esc(INTRO.lede)}</p>
-      <ul class="notes">${INTRO.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>
       ${groups.map(g => `
         <div class="eyebrow">${esc(g)}</div>
-        ${g === "Sore legs days" ? `<p class="lede">${esc(INTRO.soreLegs)}</p>` : ""}
         <ul class="rows">${WO.filter(w => w.group === g).map(workoutRow).join("")}</ul>`).join("")}`;
   }
 
@@ -94,7 +91,7 @@
         <div class="eyebrow">${TIER[tier]}</div>
         <ul class="rows">${list.filter(e => e.tier === tier).map(e => `<li><a class="row" href="#/exercise/${e.id}">
           <div><div class="t">${esc(e.name)}</div><div class="s">${CAT[e.category]}${e.tier === "weighted" ? " · " + esc(e.startWeight) : ""} · ${esc(e.reps)}</div></div>
-          <span class="arrow">→</span></a></li>`).join("")}</ul>`).join("")}`;
+          <span class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span></a></li>`).join("")}</ul>`).join("")}`;
   }
 
   function renderExercise(id) {

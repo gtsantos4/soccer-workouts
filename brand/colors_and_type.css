@@ -1,0 +1,206 @@
+/* ============================================================
+   Gradum Academy — Colors & Type
+   Instagram-first, video-led soccer academy system.
+   Source of truth: DESIGN.md (v0.2).
+   ============================================================ */
+
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  /* ---------- Brand & neutrals ---------- */
+  --ga-ink:            #111111;   /* primary brand, headlines, CTAs */
+  --ga-on-primary:     #ffffff;
+  --ga-canvas:         #ffffff;
+  --ga-soft-cloud:     #f5f5f5;   /* the system's "studio gray" */
+  --ga-charcoal:       #39393b;
+  --ga-ash:            #4b4b4d;
+  --ga-mute:           #707072;
+  --ga-stone:          #9e9ea0;
+  --ga-hairline:       #cacacb;
+  --ga-hairline-soft:  #e5e5e5;
+
+  /* ---------- Signature accent ---------- */
+  --ga-pitch:          #3cb8d6;   /* THE brand accent — lower-third bar, accents, dots */
+  --ga-pitch-deep:     #2293ad;
+  --ga-pitch-bright:   #6fd4ec;
+
+  /* ---------- Semantic ---------- */
+  --ga-alert:          #c01818;
+  --ga-alert-deep:     #7a0d0d;
+  --ga-info:           #2b4880;
+  --ga-info-deep:      #1b3060;
+  --ga-success:        #3d7a26;
+
+  /* ---------- Spectrum (position / skill tags only) ----------
+     RESERVED: position chips, skill-tag accents, lower-third
+     accent bars, in-video stat dots. NEVER as body text,
+     CTA fill, or full surface fill. */
+  --ga-spectrum-pitch:        #5ca63e;
+  --ga-spectrum-magenta:      #d6308c;
+  --ga-spectrum-cobalt:       #2b4880;
+  --ga-spectrum-gold:         #f0cb30;
+  --ga-spectrum-cyan:         #3cb8d6;
+  --ga-spectrum-coral:        #f09060;
+  --ga-spectrum-plum:         #8c60a8;
+  --ga-spectrum-pitch-soft:   #d6ecca;
+  --ga-spectrum-magenta-soft: #f7c8e0;
+  --ga-spectrum-cobalt-soft:  #c5d0e5;
+  --ga-spectrum-gold-soft:    #fbeaa6;
+  --ga-spectrum-cyan-soft:    #c5e9f1;
+  --ga-spectrum-coral-soft:   #f9d6c0;
+  --ga-spectrum-plum-soft:    #d9c8e6;
+
+  /* ---------- Scrims (legibility over footage) ---------- */
+  --ga-scrim-bottom-soft:   linear-gradient(180deg, rgba(17,17,17,0) 40%, rgba(17,17,17,0.7) 100%);
+  --ga-scrim-bottom-strong: linear-gradient(180deg, rgba(17,17,17,0) 25%, rgba(17,17,17,0.92) 100%);
+  --ga-scrim-top-soft:      linear-gradient(0deg, rgba(17,17,17,0) 40%, rgba(17,17,17,0.7) 100%);
+  --ga-scrim-top-strong:    linear-gradient(0deg, rgba(17,17,17,0) 25%, rgba(17,17,17,0.92) 100%);
+  --ga-scrim-vignette:      radial-gradient(ellipse at center, rgba(17,17,17,0) 40%, rgba(17,17,17,0.55) 100%);
+  --ga-scrim-full-soft:     rgba(17,17,17,0.5);
+  --ga-scrim-full-strong:   rgba(17,17,17,0.75);
+  --ga-scrim-pitch-tint:    rgba(60,184,214,0.18);
+
+  /* ---------- Spacing (8px base) ---------- */
+  --ga-space-xxs:     2px;
+  --ga-space-xs:      4px;
+  --ga-space-sm:      8px;
+  --ga-space-md:      12px;
+  --ga-space-lg:      18px;
+  --ga-space-xl:      24px;
+  --ga-space-xxl:     30px;
+  --ga-space-section: 48px;
+
+  /* ---------- Radii ---------- */
+  --ga-radius-none: 0px;
+  --ga-radius-sm:   4px;   /* stat-overlay pill, drill-timer pill, skill tag */
+  --ga-radius-md:   8px;   /* caption-burn plate, search pill, filter input */
+  --ga-radius-lg:   30px;  /* every CTA pill */
+  --ga-radius-full: 9999px;
+
+  /* ---------- Motion ---------- */
+  --ga-dur-instant:  80ms;
+  --ga-dur-fast:     200ms;
+  --ga-dur-base:     400ms;
+  --ga-dur-slow:     700ms;
+  --ga-dur-glacial:  1200ms;
+
+  --ga-ease-enter:       cubic-bezier(0.16, 1, 0.3, 1);
+  --ga-ease-exit:        cubic-bezier(0.7, 0, 0.84, 0);
+  --ga-ease-emphasized:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ga-ease-linear:      linear;
+
+  /* ---------- Type families ---------- */
+  --ga-font-display: "Bebas Neue", "Anton", "Impact", "Arial Narrow Bold", sans-serif;
+  --ga-font-ui:      "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+
+  /* ---------- Semantic type tokens ----------
+     Every value below is a 1:1 mirror of DESIGN.md's
+     `typography:` block. */
+
+  /* Display tier (Bebas Neue, uppercase, line-height 0.85–0.95) */
+  --ga-type-stat-figure:          500 240px/0.85 var(--ga-font-display);
+  --ga-type-display-vertical:     500 144px/0.85 var(--ga-font-display);
+  --ga-type-display-title:        500 128px/0.85 var(--ga-font-display);
+  --ga-type-display-campaign:     500 96px/0.9  var(--ga-font-display);
+  --ga-type-quote-pull:           500 72px/0.95 var(--ga-font-display);
+  --ga-type-lower-third-name:     500 64px/0.95 var(--ga-font-display);
+
+  /* Caption / UI tier (Inter) */
+  --ga-type-caption-burn:         700 40px/1.25 var(--ga-font-ui);
+  --ga-type-caption-burn-emph:    800 40px/1.25 var(--ga-font-ui);
+  --ga-type-timer-figure:         700 40px/1.0  var(--ga-font-ui);
+  --ga-type-end-card-cta:         700 32px/1.2  var(--ga-font-ui);
+  --ga-type-lower-third-meta:     500 22px/1.2  var(--ga-font-ui);
+
+  --ga-type-heading-xl:           600 32px/1.2  var(--ga-font-ui);
+  --ga-type-heading-lg:           600 24px/1.2  var(--ga-font-ui);
+  --ga-type-heading-md:           600 16px/1.75 var(--ga-font-ui);
+  --ga-type-body-md:              400 16px/1.5  var(--ga-font-ui);
+  --ga-type-body-strong:          500 16px/1.5  var(--ga-font-ui);
+  --ga-type-button-lg:            600 24px/1.2  var(--ga-font-ui);
+  --ga-type-button-md:            500 16px/1.5  var(--ga-font-ui);
+  --ga-type-button-sm:            500 14px/1.5  var(--ga-font-ui);
+  --ga-type-link-md:              500 16px/1.75 var(--ga-font-ui);
+  --ga-type-caption-md:           500 14px/1.5  var(--ga-font-ui);
+  --ga-type-caption-sm:           500 12px/1.5  var(--ga-font-ui);
+  --ga-type-utility-xs:           500 9px/1.75  var(--ga-font-ui);
+
+  /* ---------- Safe areas (Instagram) ---------- */
+  --ga-safe-reels-top:       220px;
+  --ga-safe-reels-bottom:    400px;
+  --ga-safe-reels-side:      32px;
+  --ga-safe-stories-top:     250px;
+  --ga-safe-stories-bottom:  250px;
+  --ga-safe-stories-side:    32px;
+  --ga-safe-feed-side:       48px;
+  --ga-safe-feed-top-bottom: 64px;
+  --ga-safe-yt-web:          48px;
+}
+
+/* ============================================================
+   Semantic element defaults — opt in by adding class="ga"
+   to a wrapper, or override globally if this CSS owns the
+   document.
+   ============================================================ */
+
+.ga,
+.ga * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.ga {
+  font: var(--ga-type-body-md);
+  color: var(--ga-ink);
+  background: var(--ga-canvas);
+}
+
+.ga h1 { font: var(--ga-type-heading-xl); margin: 0; }
+.ga h2 { font: var(--ga-type-heading-lg); margin: 0; }
+.ga h3 { font: var(--ga-type-heading-md); margin: 0; }
+.ga p  { font: var(--ga-type-body-md);    margin: 0; }
+.ga a  { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.ga small { font: var(--ga-type-caption-md); color: var(--ga-mute); }
+
+/* Display burn-ins — use as utility classes on text overlays */
+.ga-display-vertical { font: var(--ga-type-display-vertical); text-transform: uppercase; letter-spacing: 0; }
+.ga-display-title    { font: var(--ga-type-display-title);    text-transform: uppercase; }
+.ga-display-campaign { font: var(--ga-type-display-campaign); text-transform: uppercase; }
+.ga-stat-figure      { font: var(--ga-type-stat-figure);      text-transform: uppercase; font-variant-numeric: tabular-nums; }
+.ga-quote-pull       { font: var(--ga-type-quote-pull);       text-transform: uppercase; }
+.ga-lower-third-name { font: var(--ga-type-lower-third-name); text-transform: uppercase; }
+.ga-lower-third-meta { font: var(--ga-type-lower-third-meta); text-transform: uppercase; letter-spacing: 0.02em; }
+.ga-caption-burn     { font: var(--ga-type-caption-burn); }
+.ga-end-card-cta     { font: var(--ga-type-end-card-cta); text-transform: uppercase; letter-spacing: 0.04em; }
+.ga-timer-figure     { font: var(--ga-type-timer-figure); font-variant-numeric: tabular-nums; }
+
+/* ---------- Button vocabulary (web companion) ---------- */
+.ga-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ga-space-sm);
+  height: 48px;
+  padding: 16px 32px;
+  border: 0;
+  border-radius: var(--ga-radius-lg);
+  font: var(--ga-type-button-md);
+  cursor: pointer;
+  transition: transform var(--ga-dur-fast) var(--ga-ease-enter),
+              opacity   var(--ga-dur-fast) var(--ga-ease-enter),
+              background-color var(--ga-dur-fast) var(--ga-ease-enter);
+}
+.ga-btn:active        { transform: scale(0.97); opacity: 0.85; }
+.ga-btn-primary       { background: var(--ga-ink);        color: var(--ga-on-primary); }
+.ga-btn-secondary     { background: var(--ga-soft-cloud); color: var(--ga-ink); }
+.ga-btn-outline-on-image {
+  background: var(--ga-canvas); color: var(--ga-ink);
+  padding: 12px 24px; height: auto;
+}
+.ga-btn-pitch         { background: var(--ga-pitch);      color: var(--ga-on-primary); }
+.ga-btn-pitch:active  { background: var(--ga-pitch-deep); }
+.ga-btn-icon-circular {
+  width: 40px; height: 40px; padding: 0;
+  border-radius: var(--ga-radius-full);
+  background: var(--ga-soft-cloud); color: var(--ga-ink);
+}
