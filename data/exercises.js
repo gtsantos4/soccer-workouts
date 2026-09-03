@@ -26,7 +26,7 @@ window.EXERCISES = [
       "Drive through your whole foot to stand back up tall."
     ],
     cues: ["Chest up, eyes forward", "Knees track over your toes, don't let them cave in", "Heels stay on the floor"],
-    harder: "squat-jump", easier: "", video: ""
+    harder: "squat-jump", easier: "", video: "https://www.youtube.com/watch?v=cB0cOX7gePg" // Nerd Fitness
   },
   {
     id: "lunge", name: "Lunges", category: "lower", tier: "bw",
@@ -38,7 +38,7 @@ window.EXERCISES = [
       "Switch legs. One rep = one lunge on each side."
     ],
     cues: ["Front knee stays over the ankle, not past the toes", "Torso stays upright", "Step long enough that your front shin stays vertical"],
-    harder: "lunge-jump", easier: "squat", video: ""
+    harder: "lunge-jump", easier: "squat", video: "https://www.youtube.com/watch?v=QE_hU8XX48I" // Howcast
   },
   {
     id: "step-up", name: "Step-ups", category: "lower", tier: "bw",
@@ -50,7 +50,7 @@ window.EXERCISES = [
       "Do all reps on one leg, then switch."
     ],
     cues: ["Whole foot on the box, heel included", "Control the way down, don't drop", "Stand fully tall at the top"],
-    harder: "jump-up", easier: "squat", video: ""
+    harder: "jump-up", easier: "squat", video: "https://www.youtube.com/watch?v=vOiHvzj5XhA" // Runna
   },
   {
     id: "lateral-lunge", name: "Lateral lunges", category: "lower", tier: "bw",
@@ -62,7 +62,7 @@ window.EXERCISES = [
       "Push off the bent leg to return to the start. Switch sides."
     ],
     cues: ["Chest up, hips back", "Both feet flat and pointing forward", "The straight leg really stays straight"],
-    harder: "goblet-lateral-lunge", easier: "squat", video: ""
+    harder: "goblet-lateral-lunge", easier: "squat", video: "https://www.youtube.com/watch?v=Vx6mQXEj8kw" // Nerd Fitness
   },
   {
     id: "nordic-curl", name: "Nordic curls", category: "lower", tier: "bw",
@@ -74,7 +74,7 @@ window.EXERCISES = [
       "When you can't hold it anymore, catch yourself with your hands and push back up to the start."
     ],
     cues: ["Hips stay straight, don't bend at the waist", "Slow is the whole point, 3–5 seconds down", "It's normal to only get part way down at first"],
-    harder: "", easier: "", video: ""
+    harder: "", easier: "", video: "https://www.youtube.com/watch?v=_e9vFU9-tkc" // E3 Rehab
   },
   {
     id: "squat-jump", name: "Squat jumps", category: "lower", tier: "tougher-bw",
@@ -85,7 +85,7 @@ window.EXERCISES = [
       "Land softly on the balls of your feet and sink right back into the next squat."
     ],
     cues: ["Land quiet, like a cat", "Knees don't cave in on the landing", "Full squat depth before every jump"],
-    harder: "", easier: "squat", video: ""
+    harder: "", easier: "squat", video: "https://www.youtube.com/watch?v=tZSYZdtbONc" // NASM
   },
   {
     id: "lunge-jump", name: "Lunge jumps", category: "lower", tier: "tougher-bw",
@@ -96,7 +96,7 @@ window.EXERCISES = [
       "Land softly in a lunge with the other leg forward and go straight into the next jump."
     ],
     cues: ["Soft landings", "Torso stays upright, don't lean forward", "Back knee gets close to the floor each time"],
-    harder: "", easier: "lunge", video: ""
+    harder: "", easier: "lunge", video: "https://www.youtube.com/watch?v=_5kDxC0flg0" // NASM
   },
   {
     id: "jump-up", name: "Jump-ups", category: "lower", tier: "tougher-bw",
@@ -108,7 +108,7 @@ window.EXERCISES = [
       "Land soft in a squat position on top, stand up tall, then STEP down (don't jump down)."
     ],
     cues: ["Land on your whole foot, not your toes hanging off the edge", "Step down every time to save your knees", "Pick a height you can land softly on"],
-    harder: "", easier: "step-up", video: ""
+    harder: "", easier: "step-up", video: "https://www.youtube.com/watch?v=DXu-8TAJwi4" // NASM
   },
   {
     id: "goblet-squat", name: "Goblet squats", category: "lower", tier: "weighted",
@@ -120,7 +120,7 @@ window.EXERCISES = [
       "Drive through your feet to stand back up."
     ],
     cues: ["Elbows point down, dumbbell touches your chest", "Chest stays up", "Heels down"],
-    harder: "", easier: "squat", video: ""
+    harder: "", easier: "squat", video: "https://www.youtube.com/watch?v=nfX7IFK9UNI" // NASM
   },
   {
     id: "goblet-lateral-lunge", name: "Goblet lateral lunges", category: "lower", tier: "weighted",
@@ -132,7 +132,7 @@ window.EXERCISES = [
       "Push back to standing and switch sides."
     ],
     cues: ["Dumbbell stays glued to your chest", "Chest up, hips back", "Both feet flat"],
-    harder: "", easier: "lateral-lunge", video: ""
+    harder: "", easier: "lateral-lunge", video: "https://www.youtube.com/watch?v=IsjTYbYBXyc" // Eric Cressey
   },
   {
     id: "db-lunge", name: "DB lunges", category: "lower", tier: "weighted",
@@ -144,7 +144,7 @@ window.EXERCISES = [
       "Switch legs."
     ],
     cues: ["Arms stay relaxed and straight, don't swing the weights", "Torso upright", "Front knee over the ankle"],
-    harder: "", easier: "lunge", video: ""
+    harder: "", easier: "lunge", video: "https://www.youtube.com/watch?v=G4gAK8Bhyro" // Howcast
   },
   {
     id: "db-step-up", name: "DB step-ups", category: "lower", tier: "weighted",
@@ -156,7 +156,7 @@ window.EXERCISES = [
       "Do all reps on one leg, then switch."
     ],
     cues: ["Don't push off the bottom foot", "Control the way down", "Stand tall at the top"],
-    harder: "", easier: "step-up", video: ""
+    harder: "", easier: "step-up", video: "https://www.youtube.com/watch?v=tqECKZxlCKE" // Overtime Athletes
   },
   {
     id: "db-deadlift", name: "DB deadlifts", category: "lower", tier: "weighted",
@@ -168,7 +168,7 @@ window.EXERCISES = [
       "Squeeze your glutes and drive your hips forward to stand back up."
     ],
     cues: ["Flat back the whole time, no rounding", "Weights stay close to your legs", "It's a hip hinge, not a squat"],
-    harder: "", easier: "", video: ""
+    harder: "", easier: "", video: "https://www.youtube.com/watch?v=HMcXQyEqJ7A"
   },
   {
     id: "walking-lunge", name: "Walking lunges", category: "lower", tier: "bw",
@@ -179,7 +179,7 @@ window.EXERCISES = [
       "Keep walking forward, alternating legs."
     ],
     cues: ["Torso upright", "Front knee over the ankle", "Take your time between steps, don't rush the landing"],
-    harder: "lunge-jump", easier: "lunge", video: ""
+    harder: "lunge-jump", easier: "lunge", video: "https://www.youtube.com/watch?v=vYfp2t4XgqQ" // Runna
   },
   {
     id: "hip-thrust", name: "Hip thrust (bodyweight)", category: "lower", tier: "bw",
@@ -190,7 +190,7 @@ window.EXERCISES = [
       "Pause at the top, then lower with control."
     ],
     cues: ["Chin tucked, eyes forward, not up at the ceiling", "Squeeze your glutes hard at the top", "Shins vertical at the top"],
-    harder: "", easier: "", video: ""
+    harder: "", easier: "", video: "https://www.youtube.com/watch?v=j59jWsUbl8A" // Eric Cressey
   },
 
   // ---------- FULL BODY ----------
@@ -204,7 +204,7 @@ window.EXERCISES = [
       "Jump your feet back in to your hands, then jump straight up with your arms overhead."
     ],
     cues: ["Body stays in a straight line in the push-up position", "Land soft", "Keep a steady pace instead of going all-out then dying"],
-    harder: "thruster", easier: "", video: ""
+    harder: "thruster", easier: "", video: "https://www.youtube.com/watch?v=qLBImHhCXSw" // Well+Good
   },
   {
     id: "thruster", name: "Thrusters", category: "full", tier: "weighted",
@@ -216,7 +216,7 @@ window.EXERCISES = [
       "Lower the dumbbells back to your shoulders and go straight into the next squat."
     ],
     cues: ["One smooth movement: squat, stand, press", "Lock your arms out at the top", "Chest up in the squat"],
-    harder: "", easier: "burpee", video: ""
+    harder: "", easier: "burpee", video: "https://www.youtube.com/watch?v=eDNt3biU9I4" // Bodybuilding.com
   },
 
   // ---------- UPPER BODY ----------
@@ -230,7 +230,7 @@ window.EXERCISES = [
       "Push back up to straight arms."
     ],
     cues: ["Squeeze your glutes so your hips don't sag", "Elbows at 45°, not flared out wide", "Too hard? Put your hands on a bench or do them from your knees"],
-    harder: "dip", easier: "", video: ""
+    harder: "dip", easier: "", video: "https://www.youtube.com/watch?v=WDIpL0pjun0" // NASM
   },
   {
     id: "pullup", name: "Pullups", category: "upper", tier: "bw",
@@ -242,7 +242,7 @@ window.EXERCISES = [
       "Lower all the way down to straight arms with control."
     ],
     cues: ["No kicking or swinging", "All the way down every rep", "Can't do one yet? Jump up and lower yourself down as slowly as you can (5 seconds)"],
-    harder: "", easier: "single-arm-row", video: ""
+    harder: "", easier: "single-arm-row", video: "https://www.youtube.com/watch?v=MhokcbRLP5w" // FitnessFAQs
   },
   {
     id: "dip", name: "Dips", category: "upper", tier: "bw",
@@ -253,7 +253,7 @@ window.EXERCISES = [
       "Press back up to straight arms."
     ],
     cues: ["Lean slightly forward on bars", "Elbows point back, not out", "Shoulders stay down away from your ears"],
-    harder: "", easier: "pushup", video: ""
+    harder: "", easier: "pushup", video: "https://www.youtube.com/watch?v=WVeZDBhZwLA" // NASM
   },
   {
     id: "front-raise", name: "Front raises", category: "upper", tier: "weighted",
@@ -265,7 +265,7 @@ window.EXERCISES = [
       "Lower slowly back to the start."
     ],
     cues: ["Don't swing or lean back to lift it", "Only go to shoulder height", "Slow on the way down"],
-    harder: "db-push-press", easier: "", video: ""
+    harder: "db-push-press", easier: "", video: "https://www.youtube.com/watch?v=DzF4olZiSBQ" // Runna
   },
   {
     id: "single-arm-row", name: "Single arm row", category: "upper", tier: "weighted",
@@ -277,7 +277,7 @@ window.EXERCISES = [
       "Lower slowly. Do all reps, then switch sides."
     ],
     cues: ["Elbow goes back toward your hip, not out to the side", "Don't twist your torso to lift it", "Back stays flat like a table"],
-    harder: "pullup", easier: "", video: ""
+    harder: "pullup", easier: "", video: "https://www.youtube.com/watch?v=S_kOe9mOLlg"
   },
   {
     id: "db-push-press", name: "DB push press", category: "upper", tier: "weighted",
@@ -289,7 +289,7 @@ window.EXERCISES = [
       "Lower back to your shoulders with control."
     ],
     cues: ["The dip is small and quick", "Finish with arms locked out overhead, biceps by your ears", "Don't lean back, keep your ribs down"],
-    harder: "thruster", easier: "front-raise", video: ""
+    harder: "thruster", easier: "front-raise", video: "https://www.youtube.com/watch?v=Laxr4-3-oXU" // Technogym
   },
 
   // ---------- CORE / ABS (from the DB Workout Plan doc) ----------
@@ -303,7 +303,7 @@ window.EXERCISES = [
       "Lower back down with control until your shoulder blades touch the floor."
     ],
     cues: ["Don't pull on your neck", "Control the way down", "Feet stay on the floor"],
-    harder: "v-up", easier: "crunch", video: ""
+    harder: "v-up", easier: "crunch", video: "https://www.youtube.com/watch?v=WuApqHGxhv4" // NASM
   },
   {
     id: "crunch", name: "Crunches", category: "core", tier: "bw",
@@ -314,7 +314,7 @@ window.EXERCISES = [
       "Pause, then lower back down."
     ],
     cues: ["It's a small movement, shoulder blades only", "Don't yank your head with your hands", "Breathe out as you crunch"],
-    harder: "situp", easier: "", video: ""
+    harder: "situp", easier: "", video: "https://www.youtube.com/watch?v=0t4t3IpiEao" // Well+Good
   },
   {
     id: "v-up", name: "V-ups", category: "core", tier: "tougher-bw",
@@ -326,7 +326,7 @@ window.EXERCISES = [
       "Lower back down with control."
     ],
     cues: ["Legs stay straight", "Too hard? Bend your knees (tuck-ups)", "Slow on the way down"],
-    harder: "", easier: "situp", video: ""
+    harder: "", easier: "situp", video: "https://www.youtube.com/watch?v=5R5CelaUAOE" // Technogym
   },
   {
     id: "russian-twist", name: "Russian twist", category: "core", tier: "bw",
@@ -337,7 +337,7 @@ window.EXERCISES = [
       "Clasp your hands and twist your torso to touch the floor on one side, then the other."
     ],
     cues: ["Turn your shoulders, not just your arms", "Back stays flat, don't round", "Steady rhythm"],
-    harder: "", easier: "", video: ""
+    harder: "", easier: "", video: "https://www.youtube.com/watch?v=wkD8rjkodUI" // Howcast
   },
   {
     id: "leg-lift", name: "Leg lifts", category: "core", tier: "bw",
@@ -348,7 +348,7 @@ window.EXERCISES = [
       "Lower slowly until your heels are just above the floor. Don't let them touch."
     ],
     cues: ["Lower back pressed into the floor", "Slow on the way down", "Too hard? Bend your knees"],
-    harder: "v-up", easier: "", video: ""
+    harder: "v-up", easier: "", video: "https://www.youtube.com/watch?v=sY2ZgV2Sj_s"
   },
   {
     id: "bicycle-crunch", name: "Bicycle crunches", category: "core", tier: "bw",
@@ -360,7 +360,7 @@ window.EXERCISES = [
       "Switch sides in a pedaling motion."
     ],
     cues: ["Elbow to knee comes from turning your shoulder, not pulling your head", "Extended leg stays off the floor", "Don't rush, full extension every rep"],
-    harder: "", easier: "crunch", video: ""
+    harder: "", easier: "crunch", video: "https://www.youtube.com/watch?v=wpRI3xBhJmo" // Well+Good
   },
   {
     id: "heel-touch", name: "Heel touches", category: "core", tier: "bw",
@@ -371,7 +371,7 @@ window.EXERCISES = [
       "Reach down to touch your right heel with your right hand, then your left heel with your left hand."
     ],
     cues: ["Shoulders stay off the floor the whole set", "Reach sideways, not up", "Keep it smooth"],
-    harder: "russian-twist", easier: "", video: ""
+    harder: "russian-twist", easier: "", video: "https://www.youtube.com/watch?v=9bR-elyolBQ"
   },
   {
     id: "plank", name: "Plank", category: "core", tier: "bw",
@@ -382,7 +382,7 @@ window.EXERCISES = [
       "Squeeze your glutes and your abs and hold."
     ],
     cues: ["No sagging hips, no hips in the air", "Breathe", "Push the floor away with your forearms"],
-    harder: "mountain-climber", easier: "", video: ""
+    harder: "mountain-climber", easier: "", video: "https://www.youtube.com/watch?v=mwlp75MS6Rg" // NASM
   },
   {
     id: "mountain-climber", name: "Mountain climbers", category: "core", tier: "tougher-bw",
@@ -393,7 +393,7 @@ window.EXERCISES = [
       "Keep alternating at a steady pace."
     ],
     cues: ["Hips stay level with your shoulders, not up in the air", "Hands under shoulders", "Steady rhythm"],
-    harder: "", easier: "plank", video: ""
+    harder: "", easier: "plank", video: "https://www.youtube.com/watch?v=cnyTQDSE884" // Well+Good
   },
   // ---------- REST (used by Fight gone bad) ----------
   {
