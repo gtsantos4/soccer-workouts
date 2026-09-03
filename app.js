@@ -5,10 +5,8 @@
   const WO = window.WORKOUTS;
   const exById = Object.fromEntries(EX.map(e => [e.id, e]));
 
-  const CAT = { lower: "Lower body", upper: "Upper body", full: "Full body", core: "Core / abs" };
+  const CAT = { lower: "Lower body", upper: "Upper body", full: "Full body", core: "Core / abs", rest: "Rest" };
   const TIER = { "bw": "Bodyweight", "tougher-bw": "Tougher bodyweight", "weighted": "Weighted" };
-  const WHERE = { anywhere: "No equipment", home: "Home", gym: "Gym" };
-  const LEVEL = { starter: "Starter", tougher: "Tougher", weighted: "Weighted" };
 
   const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
@@ -67,29 +65,26 @@
 
   // ---------- pages ----------
   function renderHome() {
-    const where = state.where || "all";
-    const list = WO.filter(w => where === "all" || w.where === where);
+    const groups = [...new Set(WO.map(w => w.group))];
+    const card = w => `
+      <a class="card" href="#/workout/${w.id}">
+        <h3>${esc(w.name)}</h3>
+        <p>${esc(w.format)}</p>
+        <div class="meta">
+          <span class="tag">${esc(w.structure)}</span>
+          <span class="tag">${esc(w.equipment)}</span>
+        </div>
+      </a>`;
     $app.innerHTML = `
-      <h1>Pick a workout</h1>
-      <p class="lede">Every workout is the same pattern: a couple of upper body, a couple of lower body, then a full body or ab exercise. Tap one to see the exercises and how to do them.</p>
-      <div class="filters" role="group" aria-label="Filter by equipment">
-        ${["all", "anywhere", "home", "gym"].map(k => `<button class="chip" data-where="${k}" aria-pressed="${where === k}">${k === "all" ? "All" : WHERE[k]}</button>`).join("")}
-      </div>
-      <div class="grid">
-        ${list.map(w => `
-          <a class="card" href="#/workout/${w.id}">
-            <h3>${esc(w.name)}</h3>
-            <p>${esc(w.tagline)}</p>
-            <div class="meta">
-              <span class="tag ${w.level}">${LEVEL[w.level]}</span>
-              <span class="tag">${WHERE[w.where]}</span>
-              <span class="tag">${w.exercises.length} exercises · ${w.rounds} rounds</span>
-            </div>
-          </a>`).join("")}
-      </div>
-      ${list.length ? "" : `<p class="empty">No workouts match that filter yet.</p>`}
+      <h1>Workouts</h1>
+      <p class="lede">${esc(INTRO.lede)}</p>
+      <ul class="cues intro">${INTRO.notes.map(n => `<li>${esc(n)}</li>`).join("")}</ul>
+      ${groups.map(g => `
+        <h2>${esc(g)}</h2>
+        ${g === "Sore legs days" ? `<p class="lede">${esc(INTRO.soreLegs)}</p>` : ""}
+        <div class="grid">${WO.filter(w => w.group === g).map(card).join("")}</div>
+      `).join("")}
     `;
-    $app.querySelectorAll("[data-where]").forEach(b => b.addEventListener("click", () => { state.where = b.dataset.where; renderHome(); }));
   }
 
   function renderWorkout(id) {
@@ -98,9 +93,8 @@
     $app.innerHTML = `
       <a class="back" href="#/">← All workouts</a>
       <h1>${esc(w.name)}</h1>
-      <p class="lede">${esc(w.tagline)}</p>
       <div class="meta" style="display:flex;gap:6px;flex-wrap:wrap">
-        <span class="tag ${w.level}">${LEVEL[w.level]}</span><span class="tag">${WHERE[w.where]}</span>
+        <span class="tag">${esc(w.structure)}</span><span class="tag">${esc(w.equipment)}</span>
       </div>
       <div class="format">${esc(w.format)}<small>Tap "How to" on any exercise to see the steps and demo without leaving this page.</small></div>
       <ol class="ex-list">
@@ -108,27 +102,31 @@
           const ex = exById[item.id];
           if (!ex) return `<li class="ex-row">Unknown exercise "${esc(item.id)}"</li>`;
           const reps = item.reps || ex.reps;
-          const sets = item.sets ? `${item.sets} × ` : "";
-          return `<li class="ex-row" id="row-${ex.id}">
+          if (ex.category === "rest") {
+            return `<li class="ex-row rest"><div class="head"><div><span class="num">${i + 1}</span><span class="name">${esc(ex.name)}</span></div><div class="reps">${esc(reps)}</div></div>${item.note ? `<div class="note">${esc(item.note)}</div>` : ""}</li>`;
+          }
+          const same = w.exercises.findIndex(x => x.id === item.id) !== i; // exercise repeated in this workout
+          const key = same ? `${ex.id}-${i}` : ex.id;
+          return `<li class="ex-row" id="row-${key}">
             <div class="head">
               <div><span class="num">${i + 1}</span><a class="name" href="#/exercise/${ex.id}">${esc(ex.name)}</a></div>
-              <div class="reps">${esc(sets + reps)}</div>
+              <div class="reps">${esc(reps)}</div>
             </div>
             <div class="sub">
               <span class="tag ${ex.category}">${CAT[ex.category]}</span>
-              <span>Weight: <strong>${esc(ex.startWeight)}</strong></span>
+              ${ex.tier === "weighted" ? `<span>Weight: <strong>${esc(ex.startWeight)}</strong></span>` : ""}
               <span>${esc(ex.equipment)}</span>
             </div>
             ${item.note ? `<div class="note">${esc(item.note)}</div>` : ""}
             <div class="actions">
-              <button class="btn" data-toggle="${ex.id}" aria-expanded="false">How to ▾</button>
+              <button class="btn" data-toggle="${key}" aria-expanded="false">How to ▾</button>
             </div>
-            <div class="howto" id="howto-${ex.id}" hidden>${howToHtml(ex, { showFullLink: true })}</div>
+            <div class="howto" id="howto-${key}" hidden>${howToHtml(ex, { showFullLink: true })}</div>
           </li>`;
         }).join("")}
       </ol>
-      <h2>Want it harder?</h2>
-      <p class="lede">Swap an exercise for its harder version and keep the reps the same. Each exercise page shows its harder and easier swaps.</p>
+      <h2>Mixing it up</h2>
+      <p class="lede">Feel free to mix it up with different exercises following the same format. Each exercise page shows a harder and an easier swap. Keep the reps the same. Text me if you're not sure whether an exercise would work.</p>
     `;
     $app.querySelectorAll("[data-toggle]").forEach(b => b.addEventListener("click", () => {
       const panel = document.getElementById("howto-" + b.dataset.toggle);
@@ -141,10 +139,10 @@
 
   function renderExercises() {
     const cat = state.cat || "all";
-    const list = EX.filter(e => cat === "all" || e.category === cat);
+    const list = EX.filter(e => e.category !== "rest" && (cat === "all" || e.category === cat));
     $app.innerHTML = `
       <h1>Exercise library</h1>
-      <p class="lede">Everything the workouts are built from. Use it to mix and match: keep the reps the same and swap in a harder version.</p>
+      <p class="lede">Everything the workouts use, plus the list from the email for mixing and matching. Weighted moves show a starting weight. Adjust up or down as needed, but keep the reps.</p>
       <div class="filters" role="group" aria-label="Filter by body area">
         ${["all", "lower", "upper", "full", "core"].map(k => `<button class="chip" data-cat="${k}" aria-pressed="${cat === k}">${k === "all" ? "All" : CAT[k]}</button>`).join("")}
       </div>
@@ -175,7 +173,7 @@
         <span class="tag ${ex.category}">${CAT[ex.category]}</span><span class="tag ${ex.tier}">${TIER[ex.tier]}</span>
       </div>
       ${howToHtml(ex)}
-      ${usedIn.length ? `<h2>Used in</h2><div class="grid">${usedIn.map(w => `<a class="card" href="#/workout/${w.id}"><h3>${esc(w.name)}</h3><p>${esc(w.tagline)}</p></a>`).join("")}</div>` : ""}
+      ${usedIn.length ? `<h2>Used in</h2><div class="grid">${usedIn.map(w => `<a class="card" href="#/workout/${w.id}"><h3>${esc(w.name)}</h3><p>${esc(w.format)}</p></a>`).join("")}</div>` : ""}
     `;
   }
 
@@ -185,6 +183,7 @@
 
   // ---------- router ----------
   const state = {};
+  const INTRO = window.INTRO;
   function route() {
     const hash = location.hash.replace(/^#\/?/, "");
     const [page, id] = hash.split("/");

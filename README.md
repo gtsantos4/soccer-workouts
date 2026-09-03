@@ -11,10 +11,14 @@ No build step. Open `index.html` in a browser, or host it anywhere static
 
 All content lives in two files:
 
+- `data/workouts.js`: the workouts, taken from the coach's "DB Workout Plan" doc, plus
+  the intro text shown on the home page. Each workout references exercises by `id` and
+  gives the reps as free text so ladders ("10 → 1"), timed rounds ("1 min max reps") and
+  climbing sequences ("7 · 9 · 11 · 13 · 15") all read the way the doc wrote them.
 - `data/exercises.js`: the exercise library (steps, cues, starting weight, default reps,
-  harder/easier swaps, optional demo video).
-- `data/workouts.js`: the workouts. Each references exercises by `id` and can override
-  reps or add a note per exercise.
+  harder/easier swaps, optional demo video). It holds every exercise the workouts use plus
+  the lower / upper / full body mix-and-match list from the coach's email, with that
+  email's starting weights on the weighted moves.
 
 Both files have a comment at the top describing every field. Add a new exercise by
 copying an existing block and giving it a unique `id`.

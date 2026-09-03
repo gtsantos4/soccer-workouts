@@ -127,3 +127,7 @@ h2 { font-size: 20px; margin: 28px 0 10px; }
 .swap { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
 
 .empty { color: var(--muted); padding: 24px 0; }
+
+.intro { margin: 0 0 8px; }
+.ex-row.rest { background: #eef2ef; border-style: dashed; }
+.tag.rest { background: #eef2ef; }

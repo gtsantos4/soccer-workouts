@@ -1,111 +1,125 @@
-// Workouts. Each one follows the coach's structure:
-//   a couple of upper body + a couple of lower body + a full body or ab exercise.
-//
-// To make one harder, swap an exercise for its "harder" option from the exercise
-// library and KEEP the reps the same (squats -> squat jumps, lunges -> DB lunges, etc).
+// Workouts, taken from the coach's "DB Workout Plan" doc. Names, exercises, order,
+// reps and structure are the doc's. Don't add workouts here that the coach hasn't written.
 //
 // Fields:
-//   name, tagline   shown on the workout card
-//   where           "home" | "gym" | "anywhere"  (anywhere = no equipment, good for vacation)
-//   level           "starter" | "tougher" | "weighted"
-//   format          how to run it, e.g. "3 rounds, rest 60–90 sec between rounds"
-//   rounds          number of times through the list
-//   exercises       [{ id, sets?, reps?, note? }] — reps overrides the library default;
-//                   sets defaults to 1 per round.
-//
-// NOTE: these are sample workouts built from the exercise list in the coach's email.
-// Replace / add the ones from the AM Workout Plan doc.
+//   group      section on the home page: "Staples" or "Sore legs days"
+//   name       workout name (the doc's heading)
+//   format     the doc's instructions for how to run it, in the coach's words
+//   structure  short label for the card, e.g. "5 rounds"
+//   equipment  what you need
+//   exercises  [{ id, reps, note? }]  reps is free text ("10", "1 min", "card number", "7 · 9 · 11 · 13 · 15")
 window.WORKOUTS = [
   {
-    id: "starter-anywhere",
-    name: "Starter: no equipment",
-    tagline: "The basic pattern. Do this anywhere, no gear needed.",
-    where: "anywhere", level: "starter",
-    format: "3 rounds. Rest 60–90 seconds between rounds.",
-    rounds: 3,
+    id: "basic",
+    group: "Staples",
+    name: "Basic",
+    format: "5 exercises, 5 rounds, 10 reps of everything. Time yourself and get through as quickly as possible.",
+    structure: "5 rounds · 10 reps each",
+    equipment: "A chair or bench",
     exercises: [
+      { id: "step-up", reps: "10", note: "Step up onto a chair." },
+      { id: "situp", reps: "10" },
       { id: "pushup", reps: "10" },
-      { id: "dip", reps: "10", note: "Bench dips off a chair are fine." },
-      { id: "squat", reps: "15" },
-      { id: "lunge", reps: "10 each leg" },
-      { id: "burpee", reps: "8" }
+      { id: "lunge", reps: "10" },
+      { id: "dip", reps: "10", note: "Dips on a bench or chair." }
     ]
   },
   {
-    id: "vacation-hotel-room",
-    name: "Vacation: hotel room",
-    tagline: "Short, quiet, no jumping. Fits in a hotel room.",
-    where: "anywhere", level: "starter",
-    format: "3 rounds. Move straight from one exercise to the next, rest 60 seconds between rounds.",
-    rounds: 3,
+    id: "10-to-1",
+    group: "Staples",
+    name: "10-1",
+    format: "First round do each exercise 10 times, second round 9, third 8, 7 ..... all the way to 1.",
+    structure: "10 rounds · 10 → 1 reps",
+    equipment: "Nothing",
     exercises: [
-      { id: "pushup", reps: "12" },
-      { id: "step-up", reps: "10 each leg", note: "Use a chair or the edge of the bed." },
-      { id: "lateral-lunge", reps: "8 each side" },
-      { id: "squat", reps: "15" },
-      { id: "plank", reps: "45 sec" }
+      { id: "squat", reps: "10 → 1" },
+      { id: "v-up", reps: "10 → 1" },
+      { id: "burpee", reps: "10 → 1" },
+      { id: "walking-lunge", reps: "10 → 1 each leg" },
+      { id: "pushup", reps: "10 → 1" }
     ]
   },
   {
-    id: "tougher-bodyweight",
-    name: "Tougher: bodyweight",
-    tagline: "Same pattern as Starter, with the jumps swapped in.",
-    where: "anywhere", level: "tougher",
-    format: "3–4 rounds. Rest 90 seconds between rounds. Land soft on every jump.",
-    rounds: 3,
+    id: "fight-gone-bad",
+    group: "Staples",
+    name: "Fight gone bad",
+    format: "Do each exercise for 1 min of max reps, rest for 1 min after you've completed ALL exercises, repeat that 5x.",
+    structure: "5 rounds · 1 min each",
+    equipment: "A bench for the hip thrusts",
     exercises: [
-      { id: "pushup", reps: "12" },
-      { id: "pullup", reps: "as many as you can", note: "No bar? Do 12 more pushups instead." },
-      { id: "squat-jump", reps: "10" },
-      { id: "lunge-jump", reps: "8 each leg" },
-      { id: "burpee", reps: "10" }
+      { id: "squat", reps: "1 min max reps" },
+      { id: "mountain-climber", reps: "1 min max reps" },
+      { id: "hip-thrust", reps: "1 min max reps", note: "Back on a bench." },
+      { id: "russian-twist", reps: "1 min max reps" },
+      { id: "pushup", reps: "1 min max reps" },
+      { id: "rest", reps: "1 min" }
     ]
   },
   {
-    id: "gym-weighted-a",
-    name: "Gym: weighted A",
-    tagline: "Dumbbell version. Start with the weights listed, adjust up or down.",
-    where: "gym", level: "weighted",
-    format: "3 rounds. Rest 90 seconds between rounds. Weights should be light enough to hold the reps with good form.",
-    rounds: 3,
+    id: "deck-of-cards",
+    group: "Staples",
+    name: "Deck of cards",
+    format: "Each suit represents an exercise, the number on the card is how many reps you do. Jacks = 11, queens = 12, kings = 13. ALL aces mean 8 burpees.",
+    structure: "Whole deck",
+    equipment: "A deck of cards + a chair",
     exercises: [
-      { id: "single-arm-row", reps: "10 each arm" },
-      { id: "db-push-press", reps: "10" },
-      { id: "goblet-squat", reps: "12" },
-      { id: "db-lunge", reps: "10 each leg" },
-      { id: "thruster", reps: "8" }
+      { id: "lunge", reps: "card number", note: "Pick a suit." },
+      { id: "crunch", reps: "card number", note: "Pick a suit." },
+      { id: "squat", reps: "card number", note: "Pick a suit." },
+      { id: "dip", reps: "card number", note: "Pick a suit. Dips on a chair." },
+      { id: "burpee", reps: "8 per ace", note: "Any ace, any suit = 8 burpees." }
     ]
   },
   {
-    id: "gym-weighted-b",
-    name: "Gym: weighted B",
-    tagline: "Hamstrings, step-ups and a core finisher.",
-    where: "gym", level: "weighted",
-    format: "3 rounds. Rest 90 seconds between rounds.",
-    rounds: 3,
+    id: "100-200-300",
+    group: "Staples",
+    name: "100, 200, 300",
+    format: "Complete 100 pushups, 200 situps, 300 squats. Do them in any order you want (i.e. 10 pushups, 20 situps, 30 squats x10), as quickly as possible.",
+    structure: "600 total reps · any order",
+    equipment: "Nothing",
     exercises: [
-      { id: "front-raise", reps: "12" },
-      { id: "pushup", reps: "15" },
-      { id: "db-deadlift", reps: "12" },
-      { id: "db-step-up", reps: "10 each leg" },
-      { id: "goblet-lateral-lunge", reps: "8 each side" },
-      { id: "dead-bug", reps: "10 each side" }
+      { id: "pushup", reps: "100 total" },
+      { id: "situp", reps: "200 total" },
+      { id: "squat", reps: "300 total" }
     ]
   },
   {
-    id: "legs-and-core",
-    name: "Legs + core focus",
-    tagline: "Lower body day with the Nordic curls in. Slow and controlled.",
-    where: "home", level: "tougher",
-    format: "3 rounds. Rest 90 seconds between rounds. Nordics are slow, that's the point.",
-    rounds: 3,
+    id: "chair-dip-pushup-situp",
+    group: "Sore legs days",
+    name: "Chair dip / pushup / situp",
+    format: "Complete the following sequence of reps (the first number in the sequence corresponds to dips, 2nd to pushups, 3rd to situps): 7, 8, 15 · 9, 11, 20 · 11, 14, 25 · 13, 17, 30 · 15, 20, 35.",
+    structure: "5 rounds · climbing reps",
+    equipment: "A chair",
     exercises: [
-      { id: "pushup", reps: "10" },
-      { id: "nordic-curl", reps: "5 slow" },
-      { id: "squat", reps: "15" },
-      { id: "jump-up", reps: "6", note: "Step down, don't jump down." },
-      { id: "side-plank", reps: "30 sec each side" },
-      { id: "mountain-climber", reps: "30 sec" }
+      { id: "dip", reps: "7 · 9 · 11 · 13 · 15", note: "Dips on a chair." },
+      { id: "pushup", reps: "8 · 11 · 14 · 17 · 20" },
+      { id: "situp", reps: "15 · 20 · 25 · 30 · 35" }
+    ]
+  },
+  {
+    id: "core-5-rounds",
+    group: "Sore legs days",
+    name: "Core: 5 rounds",
+    format: "5 rounds.",
+    structure: "5 rounds",
+    equipment: "Nothing",
+    exercises: [
+      { id: "russian-twist", reps: "50" },
+      { id: "leg-lift", reps: "20" },
+      { id: "bicycle-crunch", reps: "50" },
+      { id: "heel-touch", reps: "50" },
+      { id: "plank", reps: "1 min" }
     ]
   }
 ];
+
+// Copy from the doc, shown on the home page.
+window.INTRO = {
+  lede: "These are some of the staples you can use as a starting point. Work through them, but then feel free to mix it up with different exercises following the same format (text me if you're not sure if certain exercises would work).",
+  notes: [
+    "For exercises like pushups, drop down on your knees if you have to. I'd rather you complete it, we'll work towards being able to do the full thing.",
+    "Most of these can be found on YouTube if you don't know them, and I'm here for any questions.",
+    "I'd recommend trying to work 3+ in per week. Let me know if you need anything."
+  ],
+  soreLegs: "On days when your legs are sore, you can still get in a core/upper body workout."
+};

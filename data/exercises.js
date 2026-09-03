@@ -170,6 +170,28 @@ window.EXERCISES = [
     cues: ["Flat back the whole time, no rounding", "Weights stay close to your legs", "It's a hip hinge, not a squat"],
     harder: "", easier: "", video: ""
   },
+  {
+    id: "walking-lunge", name: "Walking lunges", category: "lower", tier: "bw",
+    equipment: "Some open floor", startWeight: "Bodyweight", reps: "10 each leg",
+    steps: [
+      "Step forward into a lunge, back knee almost touching the floor.",
+      "Instead of pushing back, drive up through the front foot and bring the back foot forward into the next lunge.",
+      "Keep walking forward, alternating legs."
+    ],
+    cues: ["Torso upright", "Front knee over the ankle", "Take your time between steps, don't rush the landing"],
+    harder: "lunge-jump", easier: "lunge", video: ""
+  },
+  {
+    id: "hip-thrust", name: "Hip thrust (bodyweight)", category: "lower", tier: "bw",
+    equipment: "A bench or chair to rest your upper back on", startWeight: "Bodyweight", reps: "12–15",
+    steps: [
+      "Sit on the floor with your upper back against a bench, knees bent, feet flat.",
+      "Push through your heels and squeeze your glutes to lift your hips until your body is flat from shoulders to knees.",
+      "Pause at the top, then lower with control."
+    ],
+    cues: ["Chin tucked, eyes forward, not up at the ceiling", "Squeeze your glutes hard at the top", "Shins vertical at the top"],
+    harder: "", easier: "", video: ""
+  },
 
   // ---------- FULL BODY ----------
   {
@@ -270,8 +292,87 @@ window.EXERCISES = [
     harder: "thruster", easier: "front-raise", video: ""
   },
 
-  // ---------- CORE / ABS ----------
-  // Not on the email list, but the workouts end in "a full body OR ab exercise".
+  // ---------- CORE / ABS (from the DB Workout Plan doc) ----------
+  {
+    id: "situp", name: "Sit ups", category: "core", tier: "bw",
+    equipment: "Nothing (hook your feet under something if it helps)", startWeight: "Bodyweight", reps: "10–20",
+    steps: [
+      "Lie on your back, knees bent, feet flat on the floor.",
+      "Cross your arms over your chest or put your hands by your ears.",
+      "Curl up until your chest reaches your knees.",
+      "Lower back down with control until your shoulder blades touch the floor."
+    ],
+    cues: ["Don't pull on your neck", "Control the way down", "Feet stay on the floor"],
+    harder: "v-up", easier: "crunch", video: ""
+  },
+  {
+    id: "crunch", name: "Crunches", category: "core", tier: "bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "15–20",
+    steps: [
+      "Lie on your back, knees bent, feet flat, hands by your ears.",
+      "Lift your shoulder blades off the floor by curling your ribs toward your hips.",
+      "Pause, then lower back down."
+    ],
+    cues: ["It's a small movement, shoulder blades only", "Don't yank your head with your hands", "Breathe out as you crunch"],
+    harder: "situp", easier: "", video: ""
+  },
+  {
+    id: "v-up", name: "V-ups", category: "core", tier: "tougher-bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "10",
+    steps: [
+      "Lie flat on your back, arms straight overhead, legs straight.",
+      "In one motion, lift your legs and your upper body so you fold into a V.",
+      "Reach your hands toward your toes at the top.",
+      "Lower back down with control."
+    ],
+    cues: ["Legs stay straight", "Too hard? Bend your knees (tuck-ups)", "Slow on the way down"],
+    harder: "", easier: "situp", video: ""
+  },
+  {
+    id: "russian-twist", name: "Russian twist", category: "core", tier: "bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "50 (each side touch = 1)",
+    steps: [
+      "Sit on the floor, knees bent, lean your torso back to about 45°.",
+      "Lift your feet off the floor if you can (keep them down to make it easier).",
+      "Clasp your hands and twist your torso to touch the floor on one side, then the other."
+    ],
+    cues: ["Turn your shoulders, not just your arms", "Back stays flat, don't round", "Steady rhythm"],
+    harder: "", easier: "", video: ""
+  },
+  {
+    id: "leg-lift", name: "Leg lifts", category: "core", tier: "bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "20",
+    steps: [
+      "Lie on your back, legs straight, hands under your hips or flat by your sides.",
+      "Keeping your legs straight, lift them until they point at the ceiling.",
+      "Lower slowly until your heels are just above the floor. Don't let them touch."
+    ],
+    cues: ["Lower back pressed into the floor", "Slow on the way down", "Too hard? Bend your knees"],
+    harder: "v-up", easier: "", video: ""
+  },
+  {
+    id: "bicycle-crunch", name: "Bicycle crunches", category: "core", tier: "bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "50 (each elbow-to-knee = 1)",
+    steps: [
+      "Lie on your back, hands by your ears, legs lifted with knees bent.",
+      "Bring one knee in while you extend the other leg straight.",
+      "Twist to touch the opposite elbow to the bent knee.",
+      "Switch sides in a pedaling motion."
+    ],
+    cues: ["Elbow to knee comes from turning your shoulder, not pulling your head", "Extended leg stays off the floor", "Don't rush, full extension every rep"],
+    harder: "", easier: "crunch", video: ""
+  },
+  {
+    id: "heel-touch", name: "Heel touches", category: "core", tier: "bw",
+    equipment: "Nothing", startWeight: "Bodyweight", reps: "50 (each touch = 1)",
+    steps: [
+      "Lie on your back, knees bent, feet flat, arms straight by your sides.",
+      "Lift your shoulder blades slightly off the floor.",
+      "Reach down to touch your right heel with your right hand, then your left heel with your left hand."
+    ],
+    cues: ["Shoulders stay off the floor the whole set", "Reach sideways, not up", "Keep it smooth"],
+    harder: "russian-twist", easier: "", video: ""
+  },
   {
     id: "plank", name: "Plank", category: "core", tier: "bw",
     equipment: "Nothing", startWeight: "Bodyweight", reps: "30–45 sec hold",
@@ -284,29 +385,6 @@ window.EXERCISES = [
     harder: "mountain-climber", easier: "", video: ""
   },
   {
-    id: "side-plank", name: "Side plank", category: "core", tier: "bw",
-    equipment: "Nothing", startWeight: "Bodyweight", reps: "20–30 sec each side",
-    steps: [
-      "Lie on your side with your elbow under your shoulder.",
-      "Stack your feet and lift your hips so your body is a straight line.",
-      "Hold, then switch sides."
-    ],
-    cues: ["Hips up and forward, don't let them drop", "Top hand on your hip or reaching up", "Too hard? Bend your knees and keep them on the floor"],
-    harder: "", easier: "plank", video: ""
-  },
-  {
-    id: "dead-bug", name: "Dead bugs", category: "core", tier: "bw",
-    equipment: "Nothing", startWeight: "Bodyweight", reps: "8–10 each side",
-    steps: [
-      "Lie on your back with arms straight up and knees bent at 90° over your hips.",
-      "Press your lower back into the floor.",
-      "Slowly lower your right arm overhead and your left leg out straight at the same time.",
-      "Come back to the start and switch to the other arm and leg."
-    ],
-    cues: ["Lower back never leaves the floor", "Slow and controlled", "Breathe out as you extend"],
-    harder: "", easier: "", video: ""
-  },
-  {
     id: "mountain-climber", name: "Mountain climbers", category: "core", tier: "tougher-bw",
     equipment: "Nothing", startWeight: "Bodyweight", reps: "30–40 sec",
     steps: [
@@ -316,5 +394,13 @@ window.EXERCISES = [
     ],
     cues: ["Hips stay level with your shoulders, not up in the air", "Hands under shoulders", "Steady rhythm"],
     harder: "", easier: "plank", video: ""
+  },
+  // ---------- REST (used by Fight gone bad) ----------
+  {
+    id: "rest", name: "Rest", category: "rest", tier: "bw",
+    equipment: "Nothing", startWeight: "—", reps: "1 min",
+    steps: ["Stop. Breathe. Drink water if you need it.", "Start the next round when the minute is up."],
+    cues: ["Rest only after you've completed ALL the exercises", "Keep an eye on the clock"],
+    harder: "", easier: "", video: ""
   }
 ];
