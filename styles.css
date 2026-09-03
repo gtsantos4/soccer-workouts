@@ -90,6 +90,8 @@ h2 { font: 800 22px/1.1 var(--head); text-transform: uppercase; letter-spacing: 
   aspect-ratio: 16 / 9; background: var(--pale);
   display: flex; align-items: center; justify-content: center; text-align: center; padding: 16px;
 }
+.yt { display: inline-block; margin-top: 8px; font: 600 13px var(--head); color: var(--slate); }
+.yt:hover { color: var(--black); }
 .swap { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
 .detail { color: var(--slate); margin: 0 0 24px; }
 .detail b { color: var(--black); font-weight: 600; }

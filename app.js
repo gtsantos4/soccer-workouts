@@ -12,7 +12,8 @@
   }
   function videoBlock(ex) {
     const id = youtubeId(ex.video);
-    if (id) return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(ex.name)}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>`;
+    if (id) return `<div class="video"><iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0" title="${esc(ex.name)}" allow="encrypted-media; picture-in-picture" allowfullscreen loading="lazy"></iframe></div>
+      <a class="yt" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener">Watch on YouTube</a>`;
     if (ex.video) return `<a class="btn" href="${esc(ex.video)}" target="_blank" rel="noopener">Watch</a>`;
     const q = encodeURIComponent(ex.name + " exercise form");
     return `<div class="video-missing"><a class="btn ghost sm" href="https://www.youtube.com/results?search_query=${q}" target="_blank" rel="noopener">Find on YouTube</a></div>`;
